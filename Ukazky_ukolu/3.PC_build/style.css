@@ -1,4 +1,4 @@
-/* 1. ZÁKLADNÍ NASTAVENÍ (Plošné selektory značek) */
+/* 1. ZÁKLADNÍ NASTAVENÍ */
 body {
     font-family: Arial, sans-serif;
     background-color: #eef2f5;
@@ -30,7 +30,7 @@ nav {
     padding: 15px;
 }
 
-/* Odkazy jsou stylovány globálně (bez zanoření typu "nav a") */
+/* Odkazy*/
 a {
     color: white;
     text-decoration: none;
@@ -38,7 +38,7 @@ a {
     background-color: #4a5568;
 }
 
-/* 3. HLAVNÍ OBSAH A TEXTY (Klasické centrování bloku) */
+/* 3. HLAVNÍ OBSAH A TEXTY*/
 main {
     max-width: 800px;
     margin: 40px auto; 
