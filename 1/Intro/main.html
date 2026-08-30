@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Základy HTML a CSS</title>
+    <style>
+        /* Interní styly v hlavičce dokumentu*/
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333333;
+            width: 800px; /* Pevná šířka = neresponzivní chování */
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #333333;
+            margin-top: 25px;
+        }
+        div {
+            background-color: #ffffff;
+            padding: 15px;
+            border: 1px solid #cccccc;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 title="Hlavní nadpis stránky">Struktura HTML dokumentu a tagy</h1>
+
+    <div>
+        <p style="font-weight: bold; color: #d9534f;">
+            Tato stránka demonstruje základní HTML tagy a jejich atributy. Níže naleznete vysvětlení všech tagů, které tvoří strukturu a obsah tohoto dokumentu.
+        </p>
+
+        <h2>1. Tagy pro strukturu dokumentu (neviditelná část a kostra)</h2>
+        
+        <p><strong>&lt;!DOCTYPE html&gt;</strong>: Definuje typ dokumentu jako HTML5. Prohlížeč díky tomu ví, jak má stránku správně interpretovat a zobrazit.</p>
+        
+        <p><strong>&lt;html&gt;</strong>: Kořenový element celé stránky. Využívá atribut <code style="background-color: #eeeeee; padding: 2px;">lang="cs"</code>, kterým prohlížečům sděluje, že je text napsán v češtině.</p>
+        
+        <p><strong>&lt;head&gt;</strong>: Hlavička dokumentu, která obsahuje neviditelné informace, takzvaná metadata, styly a titulek stránky.</p>
+        
+        <p><strong>&lt;meta&gt;</strong>: Zde je použit s atributem <code style="background-color: #eeeeee; padding: 2px;">charset="UTF-8"</code>. Tento atribut nastavuje znakovou sadu, což je klíčové pro správné zobrazení českých znaků s diakritikou.</p>
+        
+        <p><strong>&lt;title&gt;</strong>: Definuje název stránky, který se uživateli zobrazí nahoře na kartě internetového prohlížeče.</p>
+        
+        <p><strong>&lt;style&gt;</strong>: Slouží k definici interních kaskádových stylů (CSS) přímo v hlavičce, takže vzhled stránky je řízen bez nutnosti připojovat externí soubor.</p>
+        
+        <p><strong>&lt;body&gt;</strong>: Tělo dokumentu. Do tohoto tagu se umísťuje veškerý viditelný obsah stránky, který si uživatel může přečíst.</p>
+
+        <h2>2. Tagy pro formátování obsahu (viditelná část)</h2>
+        
+        <p><strong>&lt;h1&gt;</strong> a <strong>&lt;h2&gt;</strong>: Slouží k vytvoření nadpisů první a druhé úrovně. Nadpis H1 nahoře využívá atribut <code style="background-color: #eeeeee; padding: 2px;">title</code>, který po najetí myší zobrazí doplňkový text v bublině (tzv. tooltip).</p>
+        
+        <p><strong>&lt;div&gt;</strong>: Obecný blokový element (kontejner). V této stránce je použit k ohraničení hlavního textového obsahu a má nastavené bílé pozadí a rámeček pomocí CSS.</p>
+        
+        <p><strong>&lt;p&gt;</strong>: Definuje běžný odstavec textu. Některé z těchto odstavců využívají atribut <code style="background-color: #eeeeee; padding: 2px;">style</code> pro lokální úpravu vzhledu (tzv. inline stylování, například pro změnu barvy textu).</p>
+        
+        <p><strong>&lt;strong&gt;</strong> a <strong>&lt;em&gt;</strong>: Tag <strong style="color: blue;">strong</strong> text silně zvýrazní (vykreslí se tučně), zatímco tag <em>em</em> slouží ke zdůraznění textu (vykreslí se kurzívou).</p>
+        
+        <p><strong>&lt;a&gt;</strong>: Vytváří hypertextový odkaz. Zde je příklad odkazu na <a href="https://www.w3.org" target="_blank" title="Odkaz na standardy W3C">Konsorcium W3C</a>. Atribut <code style="background-color: #eeeeee; padding: 2px;">href</code> určuje cílovou webovou adresu a atribut <code style="background-color: #eeeeee; padding: 2px;">target="_blank"</code> zajistí, že se odkaz otevře v novém okně nebo panelu.</p>
+        
+        <p><strong>&lt;code&gt;</strong>: Tento tag se využívá k označení krátkých úseků počítačového kódu. V tomto dokumentu je použit pro zvýraznění názvů HTML atributů uvnitř textu.</p>
+
+    </div>
+
+</body>
+</html>

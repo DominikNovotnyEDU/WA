@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Kompletní přehled CSS Selektorů</title>
+    <style>
+        /* --- 1. SPOLEČNÁ DEFINICE (Seskupení) --- */
+        /* Aplikuje stejný základní styl na více HTML značek najednou */
+        body, p, li {
+            font-family: Arial, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+
+        /* --- 2. SELEKTOR ZNAČKY (Tagu) --- */
+        body {
+            background-color: #f4f4f9;
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+
+        /* --- 3. SELEKTOR TŘÍDY (Class) --- */
+        /* Nejběžnější způsob stylování, lze použít opakovaně */
+        .navigace {
+            background-color: #0056b3;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .sekce-obsahu {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            margin-bottom: 20px;
+            scroll-margin-top: 20px; /* Brání překrytí nadpisu při kliknutí na odkaz */
+        }
+
+        .kod {
+            background-color: #e6f7ff;
+            padding: 2px 5px;
+            border: 1px solid #91d5ff;
+            font-family: monospace;
+        }
+
+        pre {
+            background-color: #eeeeee;
+            padding: 15px;
+            border-left: 4px solid #0056b3;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        /* --- 4. SELEKTOR IDENTIFIKÁTORU (ID) --- */
+        /* ID je na stránce unikátní. Využíváno spíše pro logickou strukturu a kotvy než pro běžné styly */
+        #unikatni-upozorneni {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* --- 5. KONTEXTUÁLNÍ DEFINICE (Potomek - mezera) --- */
+        /* Cílí na všechny odkazy uvnitř třídy .navigace, bez ohledu na hloubku zanoření */
+        .navigace a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+        }
+        
+        .navigace a:hover {
+            text-decoration: underline;
+            color: #ffc107;
+        }
+
+        /* --- 6. VNOŘENÝ SELEKTOR (Přímý potomek - znak >) --- */
+        /* Aplikuje se POUZE na <li>, které jsou přímými dětmi .seznam-potomku (ne hlouběji) */
+        .seznam-potomku > li {
+            border-left: 3px solid #28a745;
+            padding-left: 10px;
+            margin-bottom: 5px;
+        }
+
+        /* --- 7. SOUROZENECKÉ SELEKTORY (+ a ~) --- */
+        /* Přímý sourozenec (+): Pouze první odstavec bezprostředně za nadpisem */
+        .nadpis-soused + p {
+            background-color: #fff3cd;
+            padding: 10px;
+            border: 1px dashed #ffc107;
+        }
+
+        /* Obecný sourozenec (~): Všechny spany, které na stejné úrovni následují po dané třídě */
+        .klicove-slovo ~ span {
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Kompletní přehled CSS Selektorů</h1>
+
+    <!-- Navigace s kotvami -->
+    <nav class="navigace">
+        <a href="#zakladni">Značky, Třídy a ID</a>
+        <a href="#kontextualni">Kontext a Společné</a>
+        <a href="#pokrocile">Vnořené a Sourozenecké</a>
+    </nav>
+
+    <main>
+        <!-- Sekce 1: Základy -->
+        <section id="zakladni" class="sekce-obsahu">
+            <h2>1. Značky, Třídy a Identifikátory</h2>
+            <p>
+                <strong>Selektor značky:</strong> Definuje styl přímo pro HTML tagy (např. <span class="kod">body</span>, <span class="kod">h1</span>). Změní vše plošně.
+            </p>
+            <p>
+                <strong>Selektor třídy (Class):</strong> Začíná tečkou (<span class="kod">.sekce-obsahu</span>). Můžete jej libovolně opakovat a kombinovat.
+            </p>
+            
+            <div id="unikatni-upozorneni">
+                <strong>Selektor identifikátoru (ID):</strong> Začíná mřížkou (<span class="kod">#unikatni-upozorneni</span>). Každé ID smí být v HTML souboru použito pouze jednou. Zde je použito pro žlutý varovný blok.
+            </div>
+        </section>
+
+        <!-- Sekce 2: Kontext a Společné -->
+        <section id="kontextualni" class="sekce-obsahu">
+            <h2>2. Společné a kontextuální definice</h2>
+            <p>
+                <strong>Společná definice (Seskupení):</strong> Používá čárku. Umožňuje sdílet styl pro více prvků (<span class="kod">h1, h2, h3 { color: blue; }</span>).
+            </p>
+            <p>
+                <strong>Kontextuální definice (Mezera):</strong> Vybírá prvky podle jejich umístění. Například <span class="kod">.navigace a</span> změní vzhled pouze těm odkazům, které se nacházejí někde uvnitř navigačního pruhu, nikoliv odkazům v běžném textu.
+            </p>
+        </section>
+
+        <!-- Sekce 3: Kombinátory -->
+        <section id="pokrocile" class="sekce-obsahu">
+            <h2>3. Vnořené a sourozenecké selektory</h2>
+            
+            <h3>Přímý potomek (znak &gt;)</h3>
+            <ul class="seznam-potomku">
+                <li>Tato položka je přímým potomkem (má zelený pruh).
+                    <ul>
+                        <li>Tato položka už přímým potomkem .seznam-potomku není (leží hlouběji), pruh tedy nedostane. Kdybychom použili kontextuální zápis (mezeru), zezelenala by také.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 class="nadpis-soused">Přímý sourozenec (znak +)</h3>
+            <p>
+                Tento první odstavec leží těsně za nadpisem (h3 + p), proto je podbarven žlutě.
+            </p>
+            <p>
+                Tento druhý odstavec už bezprostředně za nadpisem nenásleduje, proto zůstává bez barvy.
+            </p>
+
+            <h3>Obecný sourozenec (znak ~)</h3>
+            <div>
+                <span>Běžný text před klíčovým slovem. </span>
+                <span class="klicove-slovo">Klíčové slovo! </span>
+                <span>Tento text je červený (leží za klíčovým slovem). </span>
+                <span>Tento text je také červený.</span>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

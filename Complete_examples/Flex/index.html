@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Flexbox Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+    
+    <header class="header">
+        <div class="logo">Flex<span>Pro</span></div>
+        <nav class="nav-links">
+            <a href="#">Overview</a>
+            <a href="#">Projects</a>
+            <a href="#">Analytics</a>
+        </nav>
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </header>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">Settings</a>
+            <a href="#">Messages</a>
+            <a href="#">Help Center</a>
+        </aside>
+        
+        <main class="content">
+            <h1>Active Modules</h1>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Design System</h2>
+                    <p>Fluid layouts and dynamic component scaling.</p>
+                    <button>Explore</button>
+                </div>
+                <div class="card">
+                    <h2>E-Commerce</h2>
+                    <p>High-conversion product grids and checkout flows.</p>
+                    <button>Explore</button>
+                </div>
+                <div class="card">
+                    <h2>Data Analytics</h2>
+                    <p>Real-time metrics with responsive data visualization.</p>
+                    <button>Explore</button>
+                </div>
+                <div class="card">
+                    <h2>Marketing</h2>
+                    <p>Campaign landing pages optimized for engagement.</p>
+                    <button>Explore</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>Built with modern Flexbox & CSS</p>
+    </footer>
+</body>
+</html>

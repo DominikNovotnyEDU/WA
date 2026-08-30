@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Box Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333333;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2vh 3vw;
+        }
+
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+            font-size: 2.5rem;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #333333;
+            margin-top: 30px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .sekce-obsahu {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            margin-bottom: 20px;
+        }
+
+        /* 1. Rozklad Box Modelu (barevné odlišení) */
+        .vrstva-margin {
+            background-color: #f8cc9c; /* Oranžová pro margin */
+            padding: 20px;
+            border: 2px dashed #d35400;
+            margin-bottom: 20px;
+        }
+        
+        .vrstva-border {
+            background-color: #f1c40f; /* Žlutá pro border */
+            padding: 15px;
+            border: 2px dashed #b7950b;
+        }
+        
+        .vrstva-padding {
+            background-color: #a3e4d7; /* Zelená pro padding */
+            padding: 20px;
+            border: 2px dashed #1abc9c;
+        }
+        
+        .vrstva-content {
+            background-color: #aed6f1; /* Modrá pro samotný obsah */
+            padding: 30px;
+            border: 2px dashed #2980b9;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .popisek-vrstvy {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* 2. Styly rámečků (Border styles) */
+        .flex-kontejner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .ukazka-ramecku {
+            flex: 1 1 150px;
+            background-color: #eeeeee;
+            padding: 20px;
+            text-align: center;
+            /* Výchozí tloušťka a barva, styl se mění pomocí specifických tříd */
+            border-width: 5px;
+            border-color: #0056b3;
+        }
+
+        .styl-solid { border-style: solid; }
+        .styl-dashed { border-style: dashed; }
+        .styl-dotted { border-style: dotted; }
+        .styl-double { border-style: double; }
+
+        /* 3. Alternativní box modely (box-sizing) */
+        .porovnani-boxu {
+            /* Obě ukázky mají naprosto stejné CSS parametry velikosti */
+            width: 100%;
+            background-color: #e8f8f5;
+            padding: 20px;
+            border: 15px solid #d9534f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .model-content-box {
+            box-sizing: content-box;
+        }
+
+        .model-border-box {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 title="Struktura HTML elementu">CSS Box Model</h1>
+
+    <main>
+        <section class="sekce-obsahu">
+            <h2>1. Složení Box Modelu</h2>
+            <p>
+                Každý prvek na webové stránce je z pohledu CSS obdélníková "krabice". Skládá se ze čtyř základních vrstev. Pro názornost jsou v ukázce níže tyto vrstvy vizuálně rozloženy do sebe a barevně odlišeny:
+            </p>
+
+            <!-- Vizuální rozklad vrstev pomocí zanořených divů s třídami -->
+            <div class="vrstva-margin">
+                <span class="popisek-vrstvy">Margin (Vnější okraj - neviditelný, odtlačuje okolní prvky)</span>
+                
+                <div class="vrstva-border">
+                    <span class="popisek-vrstvy">Border (Rámeček - ohraničuje prvek)</span>
+                    
+                    <div class="vrstva-padding">
+                        <span class="popisek-vrstvy">Padding (Vnitřní okraj - prostor mezi rámečkem a obsahem)</span>
+                        
+                        <div class="vrstva-content">
+                            Content (Samotný obsah - text, obrázek, video...)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sekce-obsahu">
+            <h2>2. Základní styly rámečků (Border Style)</h2>
+            <p>
+                Vlastnost <strong>border</strong> je složena z tloušťky, barvy a stylu. Níže jsou ukázky čtyř nejčastějších stylů rámečků aplikovaných pomocí samostatných tříd.
+            </p>
+
+            <article class="flex-kontejner">
+                <div class="ukazka-ramecku styl-solid">Solid (Plný)</div>
+                <div class="ukazka-ramecku styl-dashed">Dashed (Čárkovaný)</div>
+                <div class="ukazka-ramecku styl-dotted">Dotted (Tečkovaný)</div>
+                <div class="ukazka-ramecku styl-double">Double (Dvojitý)</div>
+            </article>
+        </section>
+
+        <section class="sekce-obsahu">
+            <h2>3. Alternativní chování (Box-Sizing)</h2>
+            <p>
+                Oba obdélníky níže mají v CSS definovanou šířku <strong>width: 100%</strong>, odsazení <strong>padding: 20px</strong> a tlustý rámeček <strong>border: 15px</strong>. Chovají se ale úplně jinak díky vlastnosti <strong>box-sizing</strong>.
+            </p>
+
+            <div class="porovnani-boxu model-content-box">
+                <strong>Standardní model (box-sizing: content-box)</strong><br>
+                Šířka 100 % platí jen pro modrý "Content". Padding a Border se přičítají k této šířce navíc. Výsledkem je, že obdélník přetéká mimo obrazovku a vytváří horizontální posuvník.
+            </div>
+
+            <div class="porovnani-boxu model-border-box">
+                <strong>Alternativní model (box-sizing: border-box)</strong><br>
+                Šířka 100 % platí pro celý box včetně rámečku a vnitřního odsazení. Padding i Border se ukrajují směrem dovnitř. Obdélník se perfektně vejde do vymezeného prostoru.
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

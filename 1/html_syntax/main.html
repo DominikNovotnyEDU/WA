@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Základy HTML a Navigace</title>
+    <style>
+        /* Základní neresponzivní formátování */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333333;
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            border-bottom: 2px solid #0056b3; 
+            padding-bottom: 10px;
+        }
+
+        /* Stylování jednoduché neresponzivní navigace */
+        .hlavni-navigace {
+            background-color: #0056b3;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .hlavni-navigace a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 0 5px;
+        }
+
+        .hlavni-navigace a:hover {
+            background-color: #004494;
+            border-radius: 3px;
+        }
+
+        /* Stylování obsahových sekcí */
+        .sekce-obsahu {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            margin-bottom: 30px;
+            /* Scroll-margin zajistí, že po kliknutí na odkaz se nadpis neschová pod horní okraj obrazovky */
+            scroll-margin-top: 20px;
+        }
+
+        .nadpis-sekce {
+            color: #333333;
+            margin-top: 0;
+            border-left: 4px solid #0056b3;
+            padding-left: 10px;
+        }
+
+        p, li {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Blok pro ukázky kódu */
+        pre {
+            background-color: #eeeeee;
+            padding: 15px;
+            border-left: 4px solid #0056b3;
+            font-family: monospace;
+            margin-top: 10px;
+        }
+
+        .zvyr-kod {
+            background-color: #e6f7ff;
+            padding: 2px 5px;
+            border: 1px solid #91d5ff;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML syntaxe a atributy</h1>
+
+    <!-- Jednoduchá navigace s odkazy na vnitřní kotvy (ID) -->
+    <nav class="hlavni-navigace">
+        <a href="#syntaxe">1. Základní syntaxe</a>
+        <a href="#parove-neparove">2. Párové a nepárové tagy</a>
+        <a href="#atributy">3. Atributy tagů</a>
+    </nav>
+
+    <main>
+        <!-- Sekce 1: Identifikátor (id) zde slouží výhradně jako cíl pro odkaz v navigaci -->
+        <section id="syntaxe" class="sekce-obsahu">
+            <h2 class="nadpis-sekce">1. Základní syntaxe HTML</h2>
+            <p>
+                HTML (HyperText Markup Language) není programovací jazyk, ale značkovací jazyk. Slouží k definici struktury webové stránky pomocí takzvaných <strong>tagů (značek)</strong>. Tagy se zapisují do lomených závorek.
+            </p>
+            <p><strong>Obecný zápis HTML elementu:</strong></p>
+<pre>
+&lt;nazev-tagu&gt;Zde je nějaký viditelný obsah&lt;/nazev-tagu&gt;
+</pre>
+        </section>
+
+        <!-- Sekce 2 -->
+        <section id="parove-neparove" class="sekce-obsahu">
+            <h2 class="nadpis-sekce">2. Párové a nepárové tagy</h2>
+            <p>
+                HTML tagy rozdělujeme na dvě základní skupiny podle toho, zda obalují nějaký textový obsah, nebo existují samy o sobě.
+            </p>
+            <ul>
+                <li>
+                    <strong>Párové tagy:</strong> Skládají se z otevírací a ukončovací značky. Ukončovací značka má navíc lomítko. Tímto způsobem se tvoří nadpisy, odstavce nebo odkazy.<br>
+                    Ukázka: <span class="zvyr-kod">&lt;p&gt;Toto je odstavec.&lt;/p&gt;</span>
+                </li>
+                <li>
+                    <strong>Nepárové tagy (prázdné elementy):</strong> Nemají žádný obsah mezi značkami, a proto nemají ukončovací tag. Slouží k vložení konkrétního prvku přímo na dané místo (např. obrázek, zalomení řádku, vodorovná čára).<br>
+                    Ukázka: <span class="zvyr-kod">&lt;br&gt;</span> (zalomení řádku) nebo <span class="zvyr-kod">&lt;img src="obrazek.jpg"&gt;</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Sekce 3 -->
+        <section id="atributy" class="sekce-obsahu">
+            <h2 class="nadpis-sekce">3. Atributy tagů (Argumenty)</h2>
+            <p>
+                Atributy poskytují HTML tagům dodatečné informace a vlastnosti (například kam má odkaz směřovat, jakou má mít prvek třídu nebo cestu k obrázku). 
+            </p>
+            <ul>
+                <li>Atributy se píší <strong>vždy a pouze do otevírací značky</strong> (nebo do nepárové značky).</li>
+                <li>Skládají se z názvu atributu a jeho hodnoty zapsané v uvozovkách: <span class="zvyr-kod">nazev="hodnota"</span>.</li>
+                <li>Více atributů v jednom tagu se odděluje běžnou mezerou.</li>
+            </ul>
+
+            <p><strong>Ukázka tagu s atributy:</strong></p>
+<pre>
+<!-- Odkaz využívající atribut href (cíl) a target (otevření v nové záložce) -->
+&lt;a href="https://www.w3.org" target="_blank"&gt;Klikni zde&lt;/a&gt;
+
+<!-- Obrázek s atributy src (cesta k souboru) a alt (alternativní text) -->
+&lt;img src="logo.png" alt="Logo naší společnosti"&gt;
+</pre>
+        </section>
+    </main>
+
+</body>
+</html>

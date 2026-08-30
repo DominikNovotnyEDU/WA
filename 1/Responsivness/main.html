@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Responzivita a Flexbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333333;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2vh 3vw;
+        }
+
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+            font-size: 2.5rem;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #333333;
+            margin-top: 30px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Třída pro hlavní sekce - lze ji použít opakovaně */
+        .sekce-obsahu {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            margin-bottom: 20px;
+        }
+        
+        /* Třída pro Flexbox obal */
+        .flex-kontejner {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 15px; 
+            background-color: #e6f7ff;
+            padding: 15px;
+            border: 2px dashed #0056b3;
+        }
+        
+        /* 
+           Třída pro jednotlivé položky Flexboxu. 
+           Kód napíšeme pouze jednou a aplikujeme ho na všechny divy pomocí class.
+        */
+        .flex-polozka {
+            flex: 1 1 250px; 
+            background-color: #0056b3;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 title="Moderní tvorba webu">Responzivita a Flexbox</h1>
+
+    <main>
+        <!-- Použití třídy pro formátování bloku -->
+        <section class="sekce-obsahu">
+            <p style="font-weight: bold; color: #d9534f;">
+                Tato stránka demonstruje základy responzivního designu a využití Flexboxu. K formátování opakujících se bloků využity atributy class (třídy).
+            </p>
+
+            <h2>1. Relativní velikosti</h2>
+            
+            <p>
+                Pro responzivitu je klíčové omezit pevné pixely (px) a začít používat relativní jednotky. V hlavičce tohoto dokumentu jsou využity následující:
+            </p>
+            <p>
+                <strong>Procenta (%)</strong>: Šířka hlavního těla dokumentu je nastavena na 100 %, ale zároveň omezena pomocí <strong>max-width: 900px</strong>. Na velkém monitoru bude stránka široká maximálně 900 pixelů a vycentruje se, ale na mobilu se chytře smrskne přesně na šířku displeje.
+            </p>
+            <p>
+                <strong>Jednotky vw a vh</strong>: Nastavují velikost podle šířky (Viewport Width) nebo výšky (Viewport Height) okna prohlížeče. Zde jsou využity pro vnější odsazení okrajů samotné stránky.
+            </p>
+            <p>
+                <strong>Jednotka rem</strong>: Je využita u hlavního nadpisu. Odvozuje svou velikost od základního písma systému, což usnadňuje přístupnost a plynulé zvětšování textu.
+            </p>
+        </section>
+
+        <!-- Opětovné použití stejné třídy pro další sekci -->
+        <section class="sekce-obsahu">
+            <h2>2. Flexbox (Flexibilní rozvržení)</h2>
+            
+            <p>
+                Flexbox (Flexible Box) je moderní nástroj CSS pro snadné rozmisťování prvků vedle sebe. Pokud zmenšíte okno prohlížeče, všimněte si, že modré boxy níže se automaticky přeskládají pod sebe. Zajišťuje to pravidlo <strong>flex-wrap: wrap</strong>.
+            </p>
+
+            <!-- Ukázka Flexboxu - kontejner s třídou -->
+            <article class="flex-kontejner">
+                <!-- Všechny položky sdílejí jednu společnou třídu -->
+                <div class="flex-polozka">Flex položka 1</div>
+                <div class="flex-polozka">Flex položka 2</div>
+                <div class="flex-polozka">Flex položka 3</div>
+                <div class="flex-polozka">Flex položka 4</div>
+            </article>
+
+            <p style="margin-top: 15px;">
+                Každá modrá položka se nyní odkazuje na třídu <strong>class="flex-polozka"</strong>, která má nastaveno chování <strong>flex: 1 1 250px</strong>. To prohlížeči říká: "Ideální šířka je 250px. Pokud je volné místo, rovnoměrně se roztáhni. Pokud místo chybí, zmenši se." Celý obal využívá třídu <strong>class="flex-kontejner"</strong> s nastavením <strong>display: flex</strong>.
+            </p>
+        </section>
+    </main>
+
+</body>
+</html>

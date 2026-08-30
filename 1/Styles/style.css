@@ -1,0 +1,26 @@
+/* Nastavení celého těla dokumentu */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333333;
+    width: 800px; /* Pevná šířka - neresponzivní layout */
+    margin: 0 auto; /* Vycentrování na střed obrazovky */
+    padding: 20px;
+}
+
+/* Hlavní nadpis */
+h1 {
+    color: #0056b3;
+    text-align: center;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 10px;
+}
+
+/* Obalový blok (kontejner) */
+div {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #cccccc;
+}
+
+/* Další styly pro h2, p, pre a strong naleznete přímo v souboru... */

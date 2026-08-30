@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Syntaxe, selektory a kaskádování</title>
+    <style>
+        /* Základní formátování */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333333;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2vh 3vw;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            border-bottom: 2px solid #0056b3; 
+            padding-bottom: 10px;
+        }
+        h2 {
+            margin-top: 25px;
+        }
+        .sekce-obsahu {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            margin-bottom: 20px;
+        }
+        
+        /* Blok pro zobrazení zdrojového kódu */
+        pre {
+            background-color: #eeeeee;
+            padding: 15px;
+            border-left: 4px solid #0056b3;
+            font-family: monospace;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+        
+        /* Ukázka zkráceného zápisu (Shorthand) */
+        .shorthand-box {
+            border: 3px dashed #0056b3;
+            margin: 15px 0;
+            padding: 10px 20px 30px 40px; 
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        /* --- UKÁZKA KASKÁDOVÁNÍ (Priorita stylů) --- */
+        .kaskada-box p {
+            color: #888888;
+            background-color: #f4f4f9;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .kaskada-trida {
+            color: #0056b3;
+        }
+        
+        .kaskada-pozdejsi {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 title="Syntaxe CSS">Základní syntaxe a Kaskádování</h1>
+
+    <main>
+        <!-- 1. Základní syntaxe -->
+        <section class="sekce-obsahu">
+            <h2>1. Základní syntaxe</h2>
+            <p>
+                Každé pravidlo CSS se skládá ze <strong>selektoru</strong> (určuje, jaký prvek na stránce formátujeme) a bloku <strong>deklarací</strong> ohraničeného složenými závorkami[cite: 1]. Uvnitř bloku definujeme <strong>vlastnost</strong> (co měníme) a její <strong>hodnotu</strong> (jak to má vypadat). Každý zápis vlastnosti a hodnoty je oddělen dvojtečkou a musí končit středníkem.
+            </p>
+
+            <p><strong>Zdrojový kód (rozpad syntaxe):</strong></p>
+<pre>
+/* 1. Obecný teoretický vzorec */
+selektor {
+    vlastnost: hodnota;
+}
+
+/* 2. Konkrétní příklad (formátování nadpisu h1) */
+h1 {
+    color: blue;          /* Vlastnost "color", hodnota "blue" */
+    text-align: center;   /* Vlastnost "text-align", hodnota "center" */
+}
+</pre>
+        </section>
+
+        <!-- 2. Zkrácený zápis -->
+        <section class="sekce-obsahu">
+            <h2>2. Zkrácený zápis (Shorthand)</h2>
+            <p>
+                Některé vlastnosti slučují více parametrů. Níže formátovaný blok využívá shorthand pro rámeček, vnější okraj a vnitřní odsazení.
+            </p>
+            
+            <div class="shorthand-box">
+                Blok formátovaný zkráceným zápisem.
+            </div>
+
+            <p><strong>Zdrojový kód (pseudo-kód) k bloku výše:</strong></p>
+<pre>
+.shorthand-box {
+    /* 1. Tloušťka, 2. Styl, 3. Barva */
+    border: 3px dashed #0056b3;
+    
+    /* 1. Svisle (nahoře/dole), 2. Vodorovně (vpravo/vlevo) */
+    margin: 15px 0;
+    
+    /* Hodnoty po směru hodinových ručiček: Nahoře, Vpravo, Dole, Vlevo */
+    padding: 10px 20px 30px 40px; 
+}
+</pre>
+        </section>
+
+        <!-- 3. Priorita kaskádových stylů -->
+        <section class="sekce-obsahu">
+            <h2>3. Priorita a dědičnost (Kaskádování)</h2>
+            <p>
+                Styly se aplikují v určitém pořadí (kaskáda) a ty specifičtější přepisují ty obecnější[cite: 1]. Rozhoduje síla selektoru (Inline styl > Třída > Tag) a pořadí v kódu.
+            </p>
+
+            <div class="kaskada-box">
+                <p>
+                    <strong>Odstavec 1:</strong> Formátován přes obecný tag "p". Text je šedý.
+                </p>
+                <p class="kaskada-trida">
+                    <strong>Odstavec 2:</strong> Využívá třídu ".kaskada-trida". Třída je silnější než tag, text je modrý.
+                </p>
+                <p class="kaskada-trida kaskada-pozdejsi">
+                    <strong>Odstavec 3:</strong> Má obě třídy. Třída ".kaskada-pozdejsi" je v hlavičce napsána níže, proto vyhrává červená barva.
+                </p>
+                <p class="kaskada-trida" style="color: #28a745;">
+                    <strong>Odstavec 4:</strong> Využívá atribut style přímo v HTML. Inline styl má absolutní přednost, text je zelený.
+                </p>
+            </div>
+
+            <p><strong>CSS pravidla určující chování odstavců:</strong></p>
+<pre>
+/* 1. Nejnižší síla: Tag (Odstavec 1) */
+.kaskada-box p {
+    color: #888888;
+}
+
+/* 2. Vyšší síla: Třída (Odstavec 2) */
+.kaskada-trida {
+    color: #0056b3;
+}
+
+/* 3. Stejná síla jako předchozí, ale napsáno níže (Odstavec 3) */
+.kaskada-pozdejsi {
+    color: #d9534f;
+}
+
+/* 4. Odstavec 4 v HTML vypadá takto: (Nejvyšší síla - Inline) */
+/* &lt;p class="kaskada-trida" style="color: #28a745;"&gt;...&lt;/p&gt; */
+</pre>
+        </section>
+    </main>
+
+</body>
+</html>

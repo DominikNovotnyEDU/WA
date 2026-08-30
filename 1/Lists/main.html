@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Seznamy a formátování</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333333;
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #333333;
+            margin-top: 25px;
+        }
+        div {
+            background-color: #ffffff;
+            padding: 15px;
+            border: 1px solid #cccccc;
+        }
+        p, li {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        ul, ol {
+            background-color: #f9f9f9;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-left: 3px solid #0056b3;
+        }
+        hr {
+            border: 0;
+            border-top: 2px dashed #0056b3;
+            margin: 20px 0;
+        }
+        mark {
+            background-color: #ffe066;
+            padding: 0 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 title="Seznamy a základní formátování textu">Seznamy, oddělovače a další formátování</h1>
+
+    <div>
+        <p style="font-weight: bold; color: #d9534f;">
+            Tato stránka navazuje na strukturu dokumentu a ukazuje další základní tagy pro práci s textem, organizaci do seznamů a vizuální oddělování obsahu.
+        </p>
+
+        <h2>1. Neuspořádané a uspořádané seznamy</h2>
+        
+        <p>Pro výčet položek HTML nabízí dva základní typy seznamů:</p>
+
+        <!-- Neuspořádaný seznam -->
+        <ul>
+            <li><strong>&lt;ul&gt;</strong> (Unordered List): Definuje neuspořádaný seznam, kde na pořadí prvků nezáleží. Ve výchozím stavu se položky zobrazují s odrážkami (puntíky).</li>
+            <li><strong>&lt;li&gt;</strong> (List Item): Značí samotnou položku seznamu. Tento tag se vkládá dovnitř tagu <em>ul</em> nebo <em>ol</em>.</li>
+        </ul>
+
+        <!-- Uspořádaný seznam s inline stylem -->
+        <ol style="list-style-type: upper-roman;">
+            <li><strong>&lt;ol&gt;</strong> (Ordered List): Definuje uspořádaný seznam, kde hraje roli pořadí. Položky jsou automaticky číslovány.</li>
+            <li>Pomocí inline atributu <strong>style</strong> zde bylo číslování změněno. Zápis <code style="background-color: #eeeeee; padding: 2px;">style="list-style-type: upper-roman;"</code> způsobí zobrazení velkých římských číslic místo běžných arabských čísel.</li>
+        </ol>
+
+        <h2>2. Horizontální čára (oddělovač)</h2>
+        
+        <p>Níže se nachází horizontální čára, která vizuálně a tematicky odděluje obsah stránky:</p>
+        
+        <!-- Horizontální čára -->
+        <hr>
+
+        <p><strong>&lt;hr&gt;</strong> (Horizontal Rule): Je nepárový tag, který vytváří vodorovnou čáru. V CSS hlavičce tohoto dokumentu je čára ostylována jako modrá a čárkovaná, aby byla lépe viditelná.</p>
+
+        <h2>3. Další formátovací značky uvnitř textu</h2>
+
+        <p>
+            <strong>&lt;br&gt;</strong> (Break): Tento nepárový tag způsobí zalomení řádku.<br>
+            Tento text se nachází na novém řádku, ačkoli je stále součástí jednoho stejného odstavce (tagu p).
+        </p>
+
+        <p>
+            <strong>&lt;mark&gt;</strong>: Slouží ke <mark>zvýraznění důležitého textu</mark>, typicky funguje jako žlutý zvýrazňovač.
+        </p>
+
+        <p>
+            <strong>&lt;del&gt;</strong> a <strong>&lt;ins&gt;</strong>: Tyto sémantické tagy ukazují, že nějaký text byl <del>odstraněn</del> (zobrazí se přeškrtnutě) a místo něj byl <ins>vložen nový</ins> (zobrazí se podtrženě).
+        </p>
+
+        <p>
+            <strong>&lt;sup&gt;</strong> a <strong>&lt;sub&gt;</strong>: Horní a dolní index. Využijete je například v matematice nebo chemii, když potřebujete napsat, že voda je H<sub>2</sub>O a plocha čtverce se počítá jako a<sup>2</sup>.
+        </p>
+    </div>
+
+</body>
+</html>

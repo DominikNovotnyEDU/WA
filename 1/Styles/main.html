@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Stylování dokumentu</title>
+    
+    <!-- Připojení externího CSS souboru -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 title="Možnosti stylování webu">Externí, interní a inline styly CSS</h1>
+
+    <div>
+        <p style="font-weight: bold; color: #d9534f;">
+            Vzhled HTML dokumentu (barvy, písmo, rozvržení) se definuje pomocí jazyka CSS (Cascading Style Sheets). Existují tři základní způsoby, jak CSS k HTML prvkům připojit. Níže jsou vysvětleny tagy a atributy, které k tomu slouží.
+        </p>
+
+        <h2>1. Externí styly (Tag &lt;link&gt;)</h2>
+        
+        <p>
+            Nejpoužívanější a nejvhodnější způsob stylování rozsáhlejších webů je oddělení grafiky od struktury do samostatného souboru s příponou .css. K propojení tohoto souboru s HTML stránkou slouží nepárový tag <strong>&lt;link&gt;</strong>.
+        </p>
+        
+        <p>
+            Tento tag se umísťuje do neviditelné hlavičky dokumentu (tag <strong>&lt;head&gt;</strong>). Využívá atribut <strong>rel="stylesheet"</strong>, kterým prohlížeči říká, že připojuje kaskádové styly, a atribut <strong>href="moje-styly.css"</strong>, který obsahuje cestu (odkaz) k danému CSS souboru.
+        </p>
+
+        <h2>2. Interní styly (Tag &lt;style&gt;)</h2>
+        
+        <p>
+            Pokud chceme definovat styly pouze pro jednu konkrétní stránku, můžeme využít interní zápis. K tomu slouží párový tag <strong>&lt;style&gt;</strong>, který se rovněž umísťuje do hlavičky (<strong>&lt;head&gt;</strong>). Z této ukázky byl odstraněn a přesunut právě do externího souboru.
+        </p>
+
+        <h2>3. Inline styly (Atribut style)</h2>
+        
+        <p>
+            Třetím způsobem je takzvané inline stylování (přímý zápis). To se provádí pomocí atributu <strong>style</strong> přímo u konkrétní otevírací HTML značky, kterou chceme upravit.
+        </p>
+        
+        <p style="background-color: #e6f7ff; padding: 10px; border: 1px solid #91d5ff;">
+            Tento konkrétní odstavec využívá inline styl pro nastavení světle modrého pozadí a tenkého modrého rámečku. Tento zápis má z hlediska pravidel CSS (kaskády) nejvyšší prioritu a přebije případná nastavení z externího souboru.
+        </p>
+
+        <h2>Ukázka kódu (Tag &lt;pre&gt;)</h2>
+        
+        <p>
+            Pro zobrazení zdrojového kódu přímo na stránce bez toho, aby jej prohlížeč vykonal, se používá tag <strong>&lt;pre&gt;</strong> (preformatted text). Ten zachovává mezery i zalomení řádků přesně tak, jak byly napsány:
+        </p>
+        
+<pre>
+/* Ukázka z našeho nového souboru moje-styly.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+p {
+    line-height: 1.6;
+}
+</pre>
+
+    </div>
+
+</body>
+</html>
